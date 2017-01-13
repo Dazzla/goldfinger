@@ -1,5 +1,3 @@
-Goldfinger
+**Goldfinger**
 
-_Because silence is golden._
-
-**GOLDFINGAAAR!**
+_Because silence is golden_
