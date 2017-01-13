@@ -4,7 +4,7 @@
   "version": "0.1",
   "permissions": ["tabs", "unlimitedStorage"],
   "content_scripts" : [{
-    "js" : ["cab_block_user.js"],
+    "js" : ["cab_ignore_user.js"],
     "matches": ["http://*.cookdandbombd.co.uk/forums/*"]
   }],
   "browser_action": {
