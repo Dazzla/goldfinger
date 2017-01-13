@@ -12,7 +12,7 @@ _Because silence is golden_
 
 2. Make sure it's enabled in chrome:extensions
 
-3. Visit the user page of the scrote whose whining troubes you and click 'Ignore User'
+3. Visit the user page of the scrote whose whining troubles you and click 'Ignore User'
 
 4. That's it.
 
