@@ -3,13 +3,18 @@ Goldfinger
 
 _Because silence is golden_
 
-THANKS TO ZETETIC OF COOKDANDBOMBD WHO DID ALMOST ALL THE WORK FOR THIS
+Thanks to Zetetic of http://www.cookdandbomd.co.uk who wrote the cab_ignore_usr.js,
+ which is about 98% of the total effort. I just bunged it into a Chrome extension.
 
 **Instructions for use**
 
-1. Install the CRX file in Chrome:
+1. Install the CRX file\unpacked extension in Chrome:
 
+   * Chrome Extension web page at https://chrome.google.com/webstore/search/goldfinger
+   
+   Otherwise, you can directly install the CRX:
    * http://www.howtogeek.com/120743/how-to-install-extensions-from-outside-the-chrome-web-store/
+
 
 2. Make sure it's enabled in chrome:extensions
 
