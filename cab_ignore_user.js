@@ -1,7 +1,7 @@
-var ignoredUsers, expireAfter, opacity, TEN_YEARS_IN_MILLISECONDS;
+var ignoredUsers, expireAfter, opacity, TEN_YEARS_IN_MILLISECONDS, TWO_WEEKS_IN_MILLISECONDS;
 
-TEN_YEARS_IN_MILLISECONDS = 315569259747
-expireAfter = TEN_YEARS_IN_MILLISECONDS;
+TWO_WEEKS_IN_MILLISECONDS = 1209600000;
+expireAfter = TWO_WEEKS_IN_MILLISECONDS;
 opacity = '0.3';
 
 ignoredUsers = window.localStorage.getItem("ignoredUsers");
