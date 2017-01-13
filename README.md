@@ -3,6 +3,7 @@ Goldfinger
 
 _Because silence is golden_
 
+THANKS TO ZETETIC OF COOKDANDBOMBD WHO DID ALMOST ALL THE WORK FOR THIS
 
 **Instructions for use**
 
