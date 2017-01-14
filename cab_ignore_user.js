@@ -158,8 +158,15 @@ function hideQuotes() {
     }
 }
 
+function showIgnoredUsers() {
+    for(var user in ignoredUsers) {
+        console.log(ignoredUsers[user]["username"])
+    }
+}
+
 expireIgnores();
 setIgnoreLink();
 hidePosts();
 hideThreads();
 hideQuotes();
+showIgnoredUsers();
