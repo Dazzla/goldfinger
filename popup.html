@@ -6,7 +6,7 @@
  -->
 <html>
   <head>
-    <title>Getting Started Extension's Popup</title>
+    <title>Goldfinger Popup</title>
     <style>
       body {
         font-family: "Segoe UI", "Lucida Grande", Tahoma, sans-serif;
@@ -21,6 +21,17 @@
       }
     </style>
 
+    <style>
+      #summary_text{
+        white-space: pre;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        max-width: 400px;
+        font-family: "Segoe UI", "Lucida Grande", Tahoma, sans-serif;
+        font-size: 10%;
+      }
+    </style>
+
     <!--
       - JavaScript and HTML must be in separate files: see our Content Security
       - Policy documentation[1] for details and explanation.
@@ -30,6 +41,11 @@
     <script src="popup.js"></script>
   </head>
   <body>
+  <div id="summary_text">
+    More features coming soon.
+    To use this extension, visit the profile page<br>
+    of the user you want to ignore and click the 'Ignore User' link
+  </div>
     <div id="status"></div>
     <img id="image-result" hidden>
   </body>
