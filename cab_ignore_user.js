@@ -1,7 +1,14 @@
-var ignoredUsers, expireAfter, opacity, TEN_YEARS_IN_MILLISECONDS, TWO_WEEKS_IN_MILLISECONDS;
+// ==UserScript==
+// @name        Ignore Users on Cook'd and Bomb'd
+// @namespace   http://www.stupidpupil.co.uk
+// @include     http://www.cookdandbombd.co.uk/forums/*
+// @grant       none
+// @version     1.0
+// ==/UserScript==
 
-TWO_WEEKS_IN_MILLISECONDS = 1209600000;
-expireAfter = TWO_WEEKS_IN_MILLISECONDS;
+var ignoredUsers, expireAfter, opacity;
+
+expireAfter = 1209600000; //Milliseconds
 opacity = '0.3';
 
 ignoredUsers = window.localStorage.getItem("ignoredUsers");
@@ -103,7 +110,7 @@ function hideThreads() {
 
             if (ignoredUsers[uid]) {
                 subject.parentNode.style.opacity = opacity;
-                subject.getElementsByTagName("span")[0].style.display = "none";;
+                subject.getElementsByTagName("span")[0].style.display = "none";
                 subject.parentNode.getElementsByClassName("stats")[0].textContent = "";
                 subject.parentNode.getElementsByClassName("lastpost")[0].textContent = "";
             }
@@ -125,17 +132,21 @@ function hidePosts() {
 
             if (ignoredUsers[uid]) {
                 post.parentNode.style.opacity = opacity;
-                post.getElementsByClassName("avatar")[0].style.display = "none";;
-                post.getElementsByClassName("post")[0].style.display = "none";;
-                post.getElementsByClassName("keyinfo")[0].style.display = "none";;
-                post.getElementsByClassName("reset")[0].style.display = "none";;
-                post.getElementsByClassName("moderatorbar")[0].style.display = "none";;
-                post.getElementsByClassName("quote_button")[0].style.display = "none";;
+                setDisplayNone(post, "avatar");
+                setDisplayNone(post, "post");
+                setDisplayNone(post, "keyinfo");
+                setDisplayNone(post, "reset");
+                setDisplayNone(post, "moderatorbar");
+                setDisplayNone(post, "quote_button");
             }
         }
     }
 }
 
+function setDisplayNone(post, name) {
+    if(post.getElementsByClassName(name)[0])
+        post.getElementsByClassName(name)[0].style.display = "none";
+}
 
 function hideQuotes() {
     if (!window.location.href.match("topic")) {return false; }
@@ -158,15 +169,8 @@ function hideQuotes() {
     }
 }
 
-function showIgnoredUsers() {
-    for(var user in ignoredUsers) {
-        console.log(ignoredUsers[user]["username"])
-    }
-}
-
 expireIgnores();
 setIgnoreLink();
 hidePosts();
 hideThreads();
 hideQuotes();
-showIgnoredUsers();
