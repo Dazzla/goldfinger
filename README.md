@@ -8,9 +8,9 @@ Thanks to Zetetic of http://www.cookdandbomd.co.uk who wrote the cab_ignore_usr.
 
 **Instructions for use**
 
-1. Install the CRX file\unpacked extension in Chrome:
+1. Chrome extension:
 
-   * Chrome Extension web page at https://chrome.google.com/webstore/search/goldfinger
+   * Chrome Extension web page at https://chrome.google.com/webstore/detail/goldfinger/lcblhgagcoikoioafdifjkpmhpdpengc
    
    Otherwise, you can directly install the CRX:
    * http://www.howtogeek.com/120743/how-to-install-extensions-from-outside-the-chrome-web-store/
