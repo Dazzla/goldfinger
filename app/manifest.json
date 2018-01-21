@@ -1,11 +1,11 @@
 {
   "name": "Goldfinger",
   "description": "Silence is golden: provide per-user blocking for CookdAndBombd users",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "permissions": ["tabs", "unlimitedStorage"],
   "content_scripts" : [{
     "js" : ["cab_ignore_user.js"],
-    "matches": ["http://*.cookdandbombd.co.uk/forums/*"]
+    "matches": ["http://*.cookdandbombd.co.uk/forums/*", "https://*.cookdandbombd.co.uk/forums/*"]
   }],
   "browser_action": {
     "default_icon": "icon.png",
