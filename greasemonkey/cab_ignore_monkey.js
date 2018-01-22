@@ -6,7 +6,6 @@
 // @grant       none
 // @version     1.0
 // ==/UserScript==
-
 (function () {
         'use strict';
 
@@ -14,8 +13,8 @@
 
         expireAfter = 1209600000; //Milliseconds
         opacity = '0.3';
-        ignoredUsers = window.localStorage.getItem("ignoredUsers");
 
+        ignoredUsers = window.localStorage.getItem("ignoredUsers");
         if (ignoredUsers) {
             ignoredUsers = JSON.parse(ignoredUsers);
         } else {
@@ -56,7 +55,6 @@
             if (!window.location.search.match("action=profile;u=")) {
                 return false;
             }
-
             var infolinks, anchor, uid;
             infolinks = document.getElementById("infolinks");
             anchor = document.getElementById("ignorelink");
@@ -108,18 +106,21 @@
 
             var subjects, subject, uid, i;
             subjects = document.getElementsByClassName('subject');
-
             for (i in subjects) {
                 subject = subjects[i];
-
-                if (subject.getElementsByTagName) {
+                if(typeof subject !== 'object') {
+                    break;
+                }
+                if (subject.getElementsByTagName("p").length > 0) {
                     uid = subject.getElementsByTagName("p")[0].getElementsByTagName("a")[0].href.replace(new RegExp(".+u=(\\d+)"), "$1");
-
                     if (ignoredUsers[uid]) {
                         subject.parentNode.style.opacity = opacity;
-                        subject.getElementsByTagName("span")[0].style.display = "none";
-                        subject.parentNode.getElementsByClassName("stats")[0].textContent = "";
-                        subject.parentNode.getElementsByClassName("lastpost")[0].textContent = "";
+                        if (subject.getElementsByTagName("span")) {
+                            subject.getElementsByTagName("span")[0].style.display = "none";
+                            subject.parentNode.getElementsByClassName("stats")[0].textContent = "";
+                            subject.parentNode.getElementsByClassName("lastpost")[0].textContent = "";
+                        }
+
                     }
                 }
             }
@@ -135,7 +136,6 @@
 
             for (i in posts) {
                 post = posts[i];
-
                 if (post.getElementsByTagName) {
                     uid = post.getElementsByClassName("poster")[0].getElementsByTagName("h4")[0].getElementsByTagName("a")[0].href.replace(new RegExp(".+u=(\\d+)"), "$1");
 
