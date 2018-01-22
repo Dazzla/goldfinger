@@ -97,20 +97,21 @@ function hideThreads() {
     subjects = document.getElementsByClassName('subject');
     for (i in subjects) {
         subject = subjects[i];
-        if(typeof subject !== 'object') {
-            break;
-        }
-        if (subject.getElementsByTagName("p").length > 0) {
-            uid = subject.getElementsByTagName("p")[0].getElementsByTagName("a")[0].href.replace(new RegExp(".+u=(\\d+)"), "$1");
-            if (ignoredUsers[uid]) {
-                subject.parentNode.style.opacity = opacity;
-                if (subject.getElementsByTagName("span")) {
-                    subject.getElementsByTagName("span")[0].style.display = "none";
-                    subject.parentNode.getElementsByClassName("stats")[0].textContent = "";
-                    subject.parentNode.getElementsByClassName("lastpost")[0].textContent = "";
-                }
+        if (typeof subject === 'object') {
+            if (subject.getElementsByTagName("p").length > 0) {
+                uid = subject.getElementsByTagName("p")[0].getElementsByTagName("a")[0].href.replace(new RegExp(".+u=(\\d+)"), "$1");
+                if (ignoredUsers[uid]) {
+                    subject.parentNode.style.opacity = opacity;
+                    if (subject.getElementsByTagName("span")) {
+                        subject.getElementsByTagName("span")[0].style.display = "none";
+                        subject.parentNode.getElementsByClassName("stats")[0].textContent = "";
+                        subject.parentNode.getElementsByClassName("lastpost")[0].textContent = "";
+                    }
 
+                }
             }
+        } else {
+            return false;
         }
     }
 }
