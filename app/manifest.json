@@ -1,7 +1,7 @@
 {
   "name": "Goldfinger",
   "description": "Silence is golden: provide per-user blocking for CookdAndBombd users",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "permissions": ["tabs", "unlimitedStorage"],
   "content_scripts" : [{
     "js" : ["cab_ignore_user.js"],
