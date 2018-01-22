@@ -12,13 +12,13 @@ if (ignoredUsers) {
 
 //
 
-function expireIgnores(){
+function expireIgnores() {
     var ignore, i;
 
     for (i in ignoredUsers) {
         ignore = ignoredUsers[i];
 
-        if ((Date.now() - ignore.ignored) > expireAfter){
+        if ((Date.now() - ignore.ignored) > expireAfter) {
             unignoreUser(i);
         }
     }
@@ -38,12 +38,12 @@ function unignoreUser(uid) {
 }
 
 
-
 //
 
 function setIgnoreLink() {
-    if (!window.location.search.match("action=profile;u=")) {return false; }
-
+    if (!window.location.search.match("action=profile;u=")) {
+        return false;
+    }
     var infolinks, anchor, uid;
     infolinks = document.getElementById("infolinks");
     anchor = document.getElementById("ignorelink");
@@ -89,36 +89,42 @@ function setIgnoreLink() {
 //
 
 function hideThreads() {
-    if (!window.location.href.match("board")) {return false; }
+    if (!window.location.href.match("board")) {
+        return false;
+    }
 
     var subjects, subject, uid, i;
     subjects = document.getElementsByClassName('subject');
-
     for (i in subjects) {
         subject = subjects[i];
-
-        if (subject.getElementsByTagName) {
+        if(typeof subject !== 'object') {
+            break;
+        }
+        if (subject.getElementsByTagName("p").length > 0) {
             uid = subject.getElementsByTagName("p")[0].getElementsByTagName("a")[0].href.replace(new RegExp(".+u=(\\d+)"), "$1");
-
             if (ignoredUsers[uid]) {
                 subject.parentNode.style.opacity = opacity;
-                subject.getElementsByTagName("span")[0].style.display = "none";
-                subject.parentNode.getElementsByClassName("stats")[0].textContent = "";
-                subject.parentNode.getElementsByClassName("lastpost")[0].textContent = "";
+                if (subject.getElementsByTagName("span")) {
+                    subject.getElementsByTagName("span")[0].style.display = "none";
+                    subject.parentNode.getElementsByClassName("stats")[0].textContent = "";
+                    subject.parentNode.getElementsByClassName("lastpost")[0].textContent = "";
+                }
+
             }
         }
     }
 }
 
 function hidePosts() {
-    if (!window.location.href.match("topic")) {return false; }
+    if (!window.location.href.match("topic")) {
+        return false;
+    }
 
     var posts, post, uid, i;
     posts = document.getElementsByClassName('post_wrapper');
 
     for (i in posts) {
         post = posts[i];
-
         if (post.getElementsByTagName) {
             uid = post.getElementsByClassName("poster")[0].getElementsByTagName("h4")[0].getElementsByTagName("a")[0].href.replace(new RegExp(".+u=(\\d+)"), "$1");
 
@@ -136,18 +142,22 @@ function hidePosts() {
 }
 
 function setDisplayNone(post, name) {
-    if(post.getElementsByClassName(name)[0])
+    if (post.getElementsByClassName(name)[0])
         post.getElementsByClassName(name)[0].style.display = "none";
 }
 
 function hideQuotes() {
-    if (!window.location.href.match("topic")) {return false; }
+    if (!window.location.href.match("topic")) {
+        return false;
+    }
 
     var quoteheaders, qh, usernames, qusername, i;
     quoteheaders = document.getElementsByClassName('quoteheader');
 
     usernames = [];
-    for (i in ignoredUsers) {usernames.push(ignoredUsers[i].username); }
+    for (i in ignoredUsers) {
+        usernames.push(ignoredUsers[i].username);
+    }
 
     for (i in quoteheaders) {
         qh = quoteheaders[i];
